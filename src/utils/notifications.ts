@@ -41,6 +41,7 @@ import type { Lead } from '@/pages/api/leads'
 
 // Telegram notification service
 export async function sendTelegramNotification(lead: Lead): Promise<void> {
+  console.log('sendTelegramNotification ')
   const botToken = process.env.TELEGRAM_BOT_TOKEN
   const chatId = process.env.TELEGRAM_CHAT_ID
 
@@ -50,6 +51,7 @@ export async function sendTelegramNotification(lead: Lead): Promise<void> {
   }
 
   const message = generateTelegramMessage(lead)
+  console.log('message ', message)
 
   try {
     await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
