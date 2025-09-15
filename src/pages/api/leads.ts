@@ -74,20 +74,15 @@ export default async function handler(
         fullName: lead.fullName,
       });
 
-      console.log('process.env.ENABLE_TELEGRAM_NOTIFICATIONS ', process.env.ENABLE_TELEGRAM_NOTIFICATIONS)
       // Асинхронная отправка уведомлений (не блокируем ответ)
       if (process.env.ENABLE_TELEGRAM_NOTIFICATIONS === 'true') {
-        (process.env.ENABLE_TELEGRAM_NOTIFICATIONS === 'true'
-          ? sendTelegramNotification(lead)
-          : Promise.resolve()
-        )
-          .then((results) => {
-            console.log(`✅ Telegram notification sent successfully`);
-            console.log('🚀 All notifications processed');
-          })
-          .catch((error) => {
-            console.error('⚠️ Notifications error:', error.message);
-          });
+        try {
+          await sendTelegramNotification(lead);
+          console.log(`✅ Telegram notification sent successfully`);
+          console.log('🚀 All notifications processed');
+        } catch (error) {
+          console.error('⚠️ Notifications error:', error);
+        }
       }
 
       return res.status(201).json({
