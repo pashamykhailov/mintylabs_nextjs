@@ -1,44 +1,43 @@
 import axios from 'axios'
-import nodemailer from 'nodemailer'
 import type { Lead } from '@/pages/api/leads'
 
 // Email notification service
-export async function sendEmailNotification(lead: Lead): Promise<void> {
-  const smtpUser = process.env.SMTP_USER
-  const smtpPass = process.env.SMTP_PASS
+// export async function sendEmailNotification(lead: Lead): Promise<void> {
+//   const smtpUser = process.env.SMTP_USER
+//   const smtpPass = process.env.SMTP_PASS
 
-  if (!smtpUser || !smtpPass) {
-    console.log('Email credentials not configured, skipping email notification')
-    return
-  }
+//   if (!smtpUser || !smtpPass) {
+//     console.log('Email credentials not configured, skipping email notification')
+//     return
+//   }
 
-  const transporter = nodemailer.createTransporter({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false,
-    auth: {
-      user: smtpUser,
-      pass: smtpPass,
-    },
-  })
+//   const transporter = nodemailer.createTransporter({
+//     host: process.env.SMTP_HOST || 'smtp.gmail.com',
+//     port: parseInt(process.env.SMTP_PORT || '587'),
+//     secure: false,
+//     auth: {
+//       user: smtpUser,
+//       pass: smtpPass,
+//     },
+//   })
 
-  const emailTemplate = generateEmailTemplate(lead)
+//   const emailTemplate = generateEmailTemplate(lead)
 
-  const mailOptions = {
-    from: process.env.FROM_EMAIL || 'noreply@mintylabs.com',
-    to: process.env.TO_EMAIL || 'hello@mintylabs.com',
-    subject: `🚀 Новая заявка: ${lead.fullName} из ${lead.company}`,
-    html: emailTemplate,
-  }
+//   const mailOptions = {
+//     from: process.env.FROM_EMAIL || 'noreply@mintylabs.com',
+//     to: process.env.TO_EMAIL || 'hello@mintylabs.com',
+//     subject: `🚀 Новая заявка: ${lead.fullName} из ${lead.company}`,
+//     html: emailTemplate,
+//   }
 
-  try {
-    await transporter.sendMail(mailOptions)
-    console.log('✅ Email notification sent successfully')
-  } catch (error) {
-    console.error('❌ Failed to send email notification:', error)
-    throw error
-  }
-}
+//   try {
+//     await transporter.sendMail(mailOptions)
+//     console.log('✅ Email notification sent successfully')
+//   } catch (error) {
+//     console.error('❌ Failed to send email notification:', error)
+//     throw error
+//   }
+// }
 
 // Telegram notification service
 export async function sendTelegramNotification(lead: Lead): Promise<void> {

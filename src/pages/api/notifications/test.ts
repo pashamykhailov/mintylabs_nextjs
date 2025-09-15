@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { sendEmailNotification, sendTelegramNotification } from '@/utils/notifications'
+import { sendTelegramNotification } from '@/utils/notifications'
 import type { Lead } from '../leads'
 
 type TestResponse = {
@@ -69,18 +69,18 @@ export default async function handler(
       }
     }
 
-    // Тест Email уведомления
-    if (results.email.enabled) {
-      try {
-        await sendEmailNotification(testLead)
-        results.email.sent = true
-        results.email.message = 'Test email sent successfully'
-      } catch (error) {
-        results.email.message = `Email error: ${error instanceof Error ? error.message : 'Unknown error'}`
-      }
-    } else {
-      results.email.message = 'Email notifications disabled or not configured'
-    }
+    // // Тест Email уведомления
+    // if (results.email.enabled) {
+    //   try {
+    //     await sendEmailNotification(testLead)
+    //     results.email.sent = true
+    //     results.email.message = 'Test email sent successfully'
+    //   } catch (error) {
+    //     results.email.message = `Email error: ${error instanceof Error ? error.message : 'Unknown error'}`
+    //   }
+    // } else {
+    //   results.email.message = 'Email notifications disabled or not configured'
+    // }
 
     // Тест Telegram уведомления
     if (results.telegram.enabled) {

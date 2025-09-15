@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { sendEmailNotification, sendTelegramNotification } from '@/utils/notifications'
+import { sendTelegramNotification } from '@/utils/notifications'
 
 export interface Lead {
   id: string
@@ -76,7 +76,7 @@ export default async function handler(
       // Асинхронная отправка уведомлений (не блокируем ответ)
       if (process.env.ENABLE_EMAIL_NOTIFICATIONS === 'true' || process.env.ENABLE_TELEGRAM_NOTIFICATIONS === 'true') {
         Promise.allSettled([
-          process.env.ENABLE_EMAIL_NOTIFICATIONS === 'true' ? sendEmailNotification(lead) : Promise.resolve(),
+          // process.env.ENABLE_EMAIL_NOTIFICATIONS === 'true' ? sendEmailNotification(lead) : Promise.resolve(),
           process.env.ENABLE_TELEGRAM_NOTIFICATIONS === 'true' ? sendTelegramNotification(lead) : Promise.resolve()
         ]).then((results) => {
           results.forEach((result, index) => {
