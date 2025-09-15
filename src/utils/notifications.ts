@@ -54,6 +54,7 @@ export async function sendTelegramNotification(lead: Lead): Promise<void> {
   console.log('message ', message)
 
   try {
+    console.log('calling axios ', `https://api.telegram.org/bot${botToken}/sendMessage`)
     await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       chat_id: chatId,
       text: message,
