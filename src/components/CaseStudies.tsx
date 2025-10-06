@@ -114,10 +114,13 @@ const CaseStudies = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="border border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors flex items-center mx-auto">
+          <Link 
+            href="/case-studies"
+            className="inline-flex items-center border border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors group"
+          >
             View All Case Studies
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
