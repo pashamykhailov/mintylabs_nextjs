@@ -85,7 +85,7 @@ const Testimonials = () => {
                   duration: 0.6, 
                   ease: [0.25, 0.25, 0.25, 0.75] 
                 }}
-                className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl px-14 py-8 lg:px-16 lg:py-10 shadow-sm border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   {/* Testimonial Content */}
@@ -156,7 +156,7 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 hover:border-primary-300 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 z-10 group"
+            className="absolute left-1 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 hover:border-primary-300 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 z-10 group"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-primary-600 transition-colors" />
@@ -164,7 +164,7 @@ const Testimonials = () => {
           
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 hover:border-primary-300 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 z-10 group"
+            className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 hover:border-primary-300 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 z-10 group"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-primary-600 transition-colors" />
