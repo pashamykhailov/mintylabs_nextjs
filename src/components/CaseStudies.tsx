@@ -21,10 +21,18 @@ const CaseStudies = () => {
 
         <div className="space-y-12">
           {caseStudies.map((study, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 group"
+            <Link 
+              key={study.id}
+              href={`/case-studies/${study.slug}`}
+              className="block"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <div className="flex items-center gap-4 mb-6">
