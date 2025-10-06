@@ -108,7 +108,8 @@ const CaseStudies = () => {
                   </blockquote>
                 </div>
               </div>
-            </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
