@@ -1,44 +1,10 @@
 import { ArrowRight, TrendingUp, Clock, Users } from 'lucide-react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import caseStudiesData from '@/data/caseStudies.json'
 
 const CaseStudies = () => {
-  const caseStudies = [
-    {
-      category: "Financial Technology",
-      duration: "8 months",
-      title: "FinTech Platform Scaling",
-      teamSize: "5 Engineers",
-      challenge: "Needed to scale their trading platform to handle 10x traffic during market volatility.",
-      results: [
-        { metric: "↓ 65%", label: "Response Time" },
-        { metric: "+240%", label: "Team Velocity" },
-        { metric: "3 weeks", label: "Time to Market" }
-      ],
-      testimonial: {
-        quote: "Minty Labs helped us scale our platform during our most critical growth phase. Their engineers integrated seamlessly and delivered exceptional results.",
-        author: "Sarah Chen",
-        title: "CTO"
-      },
-      technologies: ["React", "Node.js", "PostgreSQL", "+1 more"]
-    },
-    {
-      category: "HealthTech", 
-      duration: "12 months",
-      title: "AI-Powered Healthcare App",
-      teamSize: "3 Engineers",
-      challenge: "Building ML-powered diagnostic tools with strict compliance requirements.",
-      results: [
-        { metric: "94.2%", label: "Accuracy" },
-        { metric: "HIPAA", label: "Compliance" },
-        { metric: "+350%", label: "User Adoption" }
-      ],
-      testimonial: {
-        quote: "The team's expertise in both AI/ML and healthcare compliance was exactly what we needed to bring our product to market.",
-        author: "Dr. Michael Torres",
-        title: "Founder"
-      },
-      technologies: ["Python", "TensorFlow", "React Native", "+1 more"]
-    }
-  ]
+  const caseStudies = caseStudiesData.filter(study => study.featured)
 
   return (
     <section id="case-studies" className="py-20 bg-white">
