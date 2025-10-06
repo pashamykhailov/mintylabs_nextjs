@@ -1,0 +1,94 @@
+[
+  {
+    "id": "case-study-1",
+    "category": "Financial Technology",
+    "duration": "8 months", 
+    "title": "FinTech Platform Scaling",
+    "teamSize": "5 Engineers",
+    "challenge": "Needed to scale their trading platform to handle 10x traffic during market volatility.",
+    "solution": "Implemented microservices architecture with Redis caching and horizontal scaling strategies.",
+    "results": [
+      { "metric": "↓ 65%", "label": "Response Time" },
+      { "metric": "+240%", "label": "Team Velocity" },
+      { "metric": "3 weeks", "label": "Time to Market" }
+    ],
+    "testimonial": {
+      "quote": "Minty Labs helped us scale our platform during our most critical growth phase. Their engineers integrated seamlessly and delivered exceptional results.",
+      "author": "Sarah Chen",
+      "title": "CTO", 
+      "company": "FinanceFlow"
+    },
+    "technologies": ["React", "Node.js", "PostgreSQL", "Redis"],
+    "featured": true,
+    "slug": "fintech-platform-scaling"
+  },
+  {
+    "id": "case-study-2",
+    "category": "HealthTech",
+    "duration": "12 months",
+    "title": "AI-Powered Healthcare App", 
+    "teamSize": "3 Engineers",
+    "challenge": "Building ML-powered diagnostic tools with strict compliance requirements.",
+    "solution": "Developed HIPAA-compliant ML pipeline with 99.9% uptime and real-time diagnostics.",
+    "results": [
+      { "metric": "94.2%", "label": "Accuracy" },
+      { "metric": "HIPAA", "label": "Compliance" },
+      { "metric": "+350%", "label": "User Adoption" }
+    ],
+    "testimonial": {
+      "quote": "The team's expertise in both AI/ML and healthcare compliance was exactly what we needed to bring our product to market.",
+      "author": "Dr. Michael Torres",
+      "title": "Founder",
+      "company": "MedTech Solutions"
+    },
+    "technologies": ["Python", "TensorFlow", "React Native", "AWS"],
+    "featured": true,
+    "slug": "ai-healthcare-app"
+  },
+  {
+    "id": "case-study-3", 
+    "category": "E-commerce",
+    "duration": "6 months",
+    "title": "Enterprise E-commerce Platform",
+    "teamSize": "4 Engineers",
+    "challenge": "Modernizing legacy e-commerce infrastructure to support global expansion.",
+    "solution": "Built cloud-native architecture with automated CI/CD and global CDN integration.",
+    "results": [
+      { "metric": "↓ 40%", "label": "Load Time" },
+      { "metric": "+180%", "label": "Conversion Rate" },
+      { "metric": "24/7", "label": "Uptime" }
+    ],
+    "testimonial": {
+      "quote": "Their systematic approach to modernizing our platform exceeded expectations. We're now processing 3x more orders with better performance.",
+      "author": "Lisa Johnson", 
+      "title": "VP of Engineering",
+      "company": "GlobalMart"
+    },
+    "technologies": ["Vue.js", "Laravel", "MySQL", "Docker"],
+    "featured": false,
+    "slug": "ecommerce-platform-modernization"
+  },
+  {
+    "id": "case-study-4",
+    "category": "Enterprise Software", 
+    "duration": "10 months",
+    "title": "SaaS Analytics Platform",
+    "teamSize": "6 Engineers",
+    "challenge": "Building real-time analytics dashboard for enterprise clients with complex data visualization needs.",
+    "solution": "Developed scalable data pipeline with interactive dashboards and custom reporting engine.",
+    "results": [
+      { "metric": "↓ 85%", "label": "Query Time" },
+      { "metric": "+500%", "label": "Data Processing" },
+      { "metric": "99.9%", "label": "Uptime" }
+    ],
+    "testimonial": {
+      "quote": "Minty Labs transformed our data capabilities. Our clients now have insights that drive real business value.",
+      "author": "Robert Kim",
+      "title": "CTO", 
+      "company": "DataViz Pro"
+    },
+    "technologies": ["React", "Python", "Apache Kafka", "MongoDB"],
+    "featured": false,
+    "slug": "saas-analytics-platform"
+  }
+]

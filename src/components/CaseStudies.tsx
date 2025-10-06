@@ -1,44 +1,10 @@
 import { ArrowRight, TrendingUp, Clock, Users } from 'lucide-react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import caseStudiesData from '@/data/caseStudies.json'
 
 const CaseStudies = () => {
-  const caseStudies = [
-    {
-      category: "Financial Technology",
-      duration: "8 months",
-      title: "FinTech Platform Scaling",
-      teamSize: "5 Engineers",
-      challenge: "Needed to scale their trading platform to handle 10x traffic during market volatility.",
-      results: [
-        { metric: "↓ 65%", label: "Response Time" },
-        { metric: "+240%", label: "Team Velocity" },
-        { metric: "3 weeks", label: "Time to Market" }
-      ],
-      testimonial: {
-        quote: "Minty Labs helped us scale our platform during our most critical growth phase. Their engineers integrated seamlessly and delivered exceptional results.",
-        author: "Sarah Chen",
-        title: "CTO"
-      },
-      technologies: ["React", "Node.js", "PostgreSQL", "+1 more"]
-    },
-    {
-      category: "HealthTech", 
-      duration: "12 months",
-      title: "AI-Powered Healthcare App",
-      teamSize: "3 Engineers",
-      challenge: "Building ML-powered diagnostic tools with strict compliance requirements.",
-      results: [
-        { metric: "94.2%", label: "Accuracy" },
-        { metric: "HIPAA", label: "Compliance" },
-        { metric: "+350%", label: "User Adoption" }
-      ],
-      testimonial: {
-        quote: "The team's expertise in both AI/ML and healthcare compliance was exactly what we needed to bring our product to market.",
-        author: "Dr. Michael Torres",
-        title: "Founder"
-      },
-      technologies: ["Python", "TensorFlow", "React Native", "+1 more"]
-    }
-  ]
+  const caseStudies = caseStudiesData.filter(study => study.featured)
 
   return (
     <section id="case-studies" className="py-20 bg-white">
@@ -55,10 +21,18 @@ const CaseStudies = () => {
 
         <div className="space-y-12">
           {caseStudies.map((study, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 group"
+            <Link 
+              key={study.id}
+              href={`/case-studies/${study.slug}`}
+              className="block"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <div className="flex items-center gap-4 mb-6">
@@ -134,15 +108,19 @@ const CaseStudies = () => {
                   </blockquote>
                 </div>
               </div>
-            </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <button className="border border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors flex items-center mx-auto">
+          <Link 
+            href="/case-studies"
+            className="inline-flex items-center border border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors group"
+          >
             View All Case Studies
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
